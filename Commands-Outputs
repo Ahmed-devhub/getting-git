@@ -1,0 +1,108 @@
+mkdir first-git-lab
+cd first-git-lab
+git init
+# Initialized empty Git repository in C:/Users/ahmed/getting-git-1/first-git-lab/.git/
+
+echo "Hello Git!" > hello.txt
+# Hello Git!
+
+git add hello.txt
+git commit -m "Initial commit – add greeting"
+# [master (root-commit) 5ce3f12] Initial commit – add greeting
+# 1 file changed, 1 insertion(+)
+# create mode 100644 hello.txt
+
+git log --oneline
+# 5ce3f12 (HEAD -> master) Initial commit – add greeting
+
+ls -R .git
+# .git:
+# COMMIT_EDITMSG  config  description  HEAD  hooks/  index  info/  logs/  objects/  refs/
+
+#.git/hooks:
+# applypatch-msg.sample*      post-update.sample*     pre-merge-commit.sample*    pre-rebase.sample*        sendemail-validate.sample*
+# commit-msg.sample*          pre-applypatch.sample*  prepare-commit-msg.sample*  pre-receive.sample*       update.sample*
+# fsmonitor-watchman.sample*  pre-commit.sample*      pre-push.sample*            push-to-checkout.sample*
+
+# .git/info:
+# exclude
+
+# .git/logs:
+# HEAD  refs/
+
+# .git/logs/refs:
+# heads/
+
+# .git/logs/refs/heads:
+# master
+
+# .git/objects:
+# 10/  54/  5c/  info/  pack/
+
+# .git/objects/10:
+# 6287c47fd25ad9a0874670a0d5c6eacf1bfe4e
+
+# .git/objects/54:
+# de96a5745ec763b592943bf4d6667a8b8e3b78
+
+# .git/objects/5c:
+# e3f12aebbffbd5c96580770b8bafcb34329693
+
+# .git/objects/info:
+
+# .git/objects/pack:
+
+# .git/refs:
+# heads/  tags/
+
+# .git/refs/heads:
+# master
+
+# .git/refs/tags:
+
+git cat-file -t 106287c47fd25ad9a0874670a0d5c6eacf1bfe4e
+# blob
+
+git cat-file -t 54de96a5745ec763b592943bf4d6667a8b8e3b78
+# tree
+
+git cat-file -t 5ce3f12aebbffbd5c96580770b8bafcb34329693
+# commit
+
+git cat-file -p 106287c47fd25ad9a0874670a0d5c6eacf1bfe4e
+# Hello Git!
+
+git cat-file -p 54de96a5745ec763b592943bf4d6667a8b8e3b78
+# 100644 blob 106287c47fd25ad9a0874670a0d5c6eacf1bfe4e    hello.txt
+
+git cat-file -p 5ce3f12aebbffbd5c96580770b8bafcb34329693
+# tree 54de96a5745ec763b592943bf4d6667a8b8e3b78
+# author Ahmed <ahmedshariif90@gmail.com> 1745680363 -0400
+# committer Ahmed <ahmedshariif90@gmail.com> 1745680363 -0400
+
+Initial commit – add greeting
+
+cat .git/HEAD
+# ref: refs/heads/master
+
+cat .git/refs/heads/master
+# 5ce3f12aebbffbd5c96580770b8bafcb34329693
+
+
+echo "One thing that surprised me about what's inside the .git folder was how every file and commit is stored as a hashed object. I didn't expect Git to manage so many internal files just for tracking one small text file!" > REFLECTION.md
+
+git add REFLECTION.md
+git commit -m "Add reflection for Assignment 01"
+
+git remote add origin https://github.com/<Ahmed-devhub>/getting-git.git
+git branch -M main
+git push -u origin main
+# Enumerating objects: 6, done.
+# Counting objects: 100% (6/6), done.
+# Delta compression using up to 8 threads
+# Compressing objects: 100% (4/4), done.
+# Writing objects: 100% (6/6), 650 bytes | 325.00 KiB/s, done.
+# Total 6 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+# To https://github.com/Ahmed-devhub/getting-git.git
+# * [new branch]      main -> main
+# branch 'main' set up to track 'origin/main'.
