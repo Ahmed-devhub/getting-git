@@ -1,0 +1,1 @@
+One thing that surprised me about what's inside the .git folder was how every file and commit is stored as a hashed object. I didn't expect Git to manage so many internal files just for tracking one small text file!
